@@ -62,16 +62,17 @@ describe('Automation Task', () => {
     cy.get('a[href="/products"]').click();
     cy.url().should('include', 'products');
 
-    // each product contain view product anchor tag with choose class. 
+    // each product contain anchor tag with data-product-id attribute. 
     // randomly select one of the anchor and click
-    cy.get('.choose').then((anchors) => {
+    cy.get('a[data-product-id]').then((anchors) => {
       const randomIndex = Math.floor(Math.random() * anchors.length)
       const randomProductAnchor = anchors.eq(randomIndex)
       cy.wrap(randomProductAnchor).click()
     })
 
     // add product to cart
-    cy.get('button.btn.btn-default.cart').click();
+    //cy.get('button.btn.btn-default.cart').click();
+
     // go to view cart
     cy.get('#cartModal a[href="/view_cart"]').click();
     // go to check out

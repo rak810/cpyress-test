@@ -25,7 +25,7 @@ describe('Automation Task', () => {
   it('It should do the provided automation task', () => {
     // visit automation exercise and go to login signup page
     cy.visit(URL)
-    cy.get('a[href="/login"]').click(); 
+    cy.get('a[href="/login"]').click() 
     cy.url().should('include', 'login')
 
     // sign up 
@@ -54,13 +54,13 @@ describe('Automation Task', () => {
     cy.get('input[data-qa="city"]').type(city)
     cy.get('input[data-qa="zipcode"]').type(zipCode)
     cy.get('input[data-qa="mobile_number"]').type(mobileNumber)
-    cy.get('button[data-qa="create-account"]').click();
+    cy.get('button[data-qa="create-account"]').click()
     cy.url().should('include', 'account_created') 
-    cy.get('a[data-qa="continue-button"]').click();
+    cy.get('a[data-qa="continue-button"]').click()
 
     // goto products page and select a random product
-    cy.get('a[href="/products"]').click();
-    cy.url().should('include', 'products');
+    cy.get('a[href="/products"]').click()
+    cy.url().should('include', 'products')
 
     // each product contain anchor tag with data-product-id attribute. 
     // randomly select one of the anchor and click
@@ -74,13 +74,13 @@ describe('Automation Task', () => {
     //cy.get('button.btn.btn-default.cart').click();
 
     // go to view cart
-    cy.get('#cartModal a[href="/view_cart"]').click();
+    cy.get('#cartModal a[href="/view_cart"]').click()
     // go to check out
-    cy.get('a.btn.btn-default.check_out').click();
-    cy.url().should('include', 'checkout');
+    cy.get('a.btn.btn-default.check_out').click()
+    cy.url().should('include', 'checkout')
     // go to payment
-    cy.get('a[href="/payment"]').click();
-    cy.url().should('include', 'payment');
+    cy.get('a[href="/payment"]').click()
+    cy.url().should('include', 'payment')
     // complete payment
     cy.get('input[data-qa="name-on-card"]').type(nameOnCard)
     cy.get('input[data-qa="card-number"]').type(cardNumber)
